@@ -18,6 +18,7 @@ delayed_start()
     done
     dnsmasq
     squid
+    dropbear -s -m -R
 }
 
 delayed_start &

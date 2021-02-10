@@ -18,6 +18,15 @@ RUN apk add \
     ppp \
     squid
 
+RUN mkdir /etc/dropbear && \
+    chmod 0700 /etc/dropbear && \
+    adduser -h /home/null -D null && \
+    mkdir /home/null/.ssh && \
+    touch /home/null/.ssh/authorized_keys && \
+    chown -R null /home/null/.ssh && \
+    chmod 0700 /home/null/.ssh && \
+    chmod 0600 /home/null/.ssh/authorized_keys
+
 WORKDIR /build
 RUN wget https://sslvpn.demo.sonicwall.com/NetExtender.x86_64.tgz && \
     tar -xvzf NetExtender.x86_64.tgz && \
@@ -29,11 +38,11 @@ RUN rm -rf /build
 
 COPY .scripts/launch.expect /root/launch.expect
 COPY .scripts/run.sh /root/run.sh
+COPY .scripts/dropbear /etc/conf.d/dropbear
 
 FROM build as run
 
 EXPOSE 22/tcp
-EXPOSE 53/udp
 EXPOSE 3180/tcp
 
 WORKDIR /root
