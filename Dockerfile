@@ -40,6 +40,7 @@ COPY .scripts/launch.expect /root/launch.expect
 COPY .scripts/keepalive.sh /root/keepalive.sh
 COPY .scripts/run.sh /root/run.sh
 COPY .scripts/dropbear /etc/conf.d/dropbear
+COPY .scripts/squid.conf /etc/squid/squid.conf
 
 FROM build as run
 
