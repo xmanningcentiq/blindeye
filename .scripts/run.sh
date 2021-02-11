@@ -19,13 +19,11 @@ delayed_start()
     dnsmasq
     squid
     dropbear -s -m -R
+    /root/keepalive.sh
 }
 
 delayed_start &
 
-while [ true ]; do
-    echo "------------ VPN Starts ------------"
-    /root/launch.expect
-    echo "------------ VPN exited ------------"
-    sleep 10
-done
+echo "------------ VPN Starts ------------"
+/root/launch.expect
+echo "------------ VPN exited ------------"

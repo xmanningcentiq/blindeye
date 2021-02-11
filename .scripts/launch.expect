@@ -1,6 +1,11 @@
 #!/usr/bin/env expect
 
-spawn "netExtender" --dns-only-remote -u $env(VPN_USER) -d $env(VPN_DOMAIN) -s $env(VPN_SERVER)
+spawn "netExtender" --auto-reconnect \
+  --dns-only-remote \
+  --timeout 120 \
+  -u $env(VPN_USER) \
+  -d $env(VPN_DOMAIN) \
+  -s $env(VPN_SERVER)
 
 set timeout 10
 
