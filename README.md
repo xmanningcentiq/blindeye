@@ -3,7 +3,7 @@
 ## Container config
 
 Running `./launch.sh` will build the image and launch an ephemeral container.
-The behavior can be configured with the below shell environment variables.
+The behaviour can be configured with the below shell environment variables.
 
 | Variable            | Description                                     | Default                   |
 |---------------------|-------------------------------------------------|---------------------------|
@@ -12,11 +12,11 @@ The behavior can be configured with the below shell environment variables.
 | `VPN_USER`          | VPN username                                    | NULL                      |
 | `VPN_PASS`          | VPN password (won't echo when asked)            | NULL                      |
 | `VPN_SSH_KEY`       | SSH public key to use in authorized_keys        | `${HOME}/.ssh/id_rsa.pub` |
-| `PROXY_PORT_OFFSET` | Offset ports by this value (eg. offset + 22)    | 30000                     |
+| `PROXY_PORT_OFFSET` | Offset ports by this value (eg. offset + 22)    | 20000                     |
 
 ## SSH Client Config
 
-This assumes you leave `PROXY_PORT_OFFSET` as the default 30000.
+This assumes you leave `PROXY_PORT_OFFSET` as the default 20000.
 
 ### Proxy container host config
 
@@ -28,7 +28,7 @@ Host blindeye
   Hostname 127.0.0.1
   User null
   IdentityFile ~/.ssh/id_rsa
-  Port 30022
+  Port 20022
   StrictHostKeyChecking no
   UserKnownHostsFile /dev/null
 ```
@@ -47,7 +47,7 @@ Host jumpbox
 
 ## HTTP proxy
 
-This assumes you leave `PROXY_PORT_OFFSET` as the default 30000.
+This assumes you leave `PROXY_PORT_OFFSET` as the default 20000.
 
 ### Firefox example
 
@@ -59,6 +59,6 @@ Settings". Click the "Settings" button.
 
 ![Network Settings](images/NetworkSettings.png)
 
-Enter 127.0.0.1:33182 as the HTTP/HTTPS/FTP proxy.
+Enter 127.0.0.1:23182 as the HTTP/HTTPS/FTP proxy.
 
 ![Network Settings](images/HTTPProxySettings.png)

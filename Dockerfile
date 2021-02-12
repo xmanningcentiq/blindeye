@@ -45,7 +45,7 @@ COPY .scripts/squid.conf /etc/squid/squid.conf
 FROM build as run
 
 EXPOSE 22/tcp
-EXPOSE 3180/tcp
+EXPOSE 3128/tcp
 
 WORKDIR /root
 ENTRYPOINT [ "./run.sh" ]
